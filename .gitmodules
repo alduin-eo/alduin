@@ -1,0 +1,15 @@
+[submodule "eoweb"]
+	path = eoweb
+	url = git@github.com:alduin-eo/eoweb.git
+[submodule "reoserv"]
+	path = reoserv
+	url = git@github.com:alduin-eo/reoserv.git
+[submodule "eolib-rs"]
+	path = eolib-rs
+	url = git@github.com:alduin-eo/eolib-rs.git
+[submodule "eolib-ts"]
+	path = eolib-ts
+	url = git@github.com:alduin-eo/eolib-ts.git
+[submodule "eo-protocol-extensions"]
+	path = eo-protocol-extensions
+	url = git@github.com:alduin-eo/eo-protocol-extensions.git
