@@ -1,2 +1,3 @@
 <extensions>
+    <extension type="git" name="alduin" repo="https://github.com/alduin-eo/eo-protocol-extensions.git" ref="main"/>
 </extensions>
