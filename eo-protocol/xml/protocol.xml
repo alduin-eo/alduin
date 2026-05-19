@@ -1,0 +1,46 @@
+<protocol>
+  <enum name="AdminLevel" type="char">
+    <comment>The admin level of a player</comment>
+    <value name="Player">0</value>
+    <value name="Spy">1</value>
+    <value name="LightGuide">2</value>
+    <value name="Guardian">3</value>
+    <value name="GameMaster">4</value>
+    <value name="HighGameMaster">5</value>
+  </enum>
+  <enum name="Direction" type="char">
+    <comment>The direction a player or NPC is facing</comment>
+    <value name="Down">0</value>
+    <value name="Left">1</value>
+    <value name="Up">2</value>
+    <value name="Right">3</value>
+  </enum>
+  <enum name="Emote" type="char">
+    <comment>Emote that can be played over a player's head</comment>
+    <value name="Happy">1</value>
+    <value name="Depressed">2</value>
+    <value name="Sad">3</value>
+    <value name="Angry">4</value>
+    <value name="Confused">5</value>
+    <value name="Surprised">6</value>
+    <value name="Hearts">7</value>
+    <value name="Moon">8</value>
+    <value name="Suicidal">9</value>
+    <value name="Embarrassed">10</value>
+    <value name="Drunk">11</value>
+    <value name="Trade">12</value>
+    <value name="LevelUp">13</value>
+    <value name="Playful">14</value>
+    <value name="Bard">15</value>
+  </enum>
+  <enum name="Gender" type="char">
+    <comment>The gender of a player</comment>
+    <value name="Female">0</value>
+    <value name="Male">1</value>
+  </enum>
+  <struct name="Coords">
+    <comment>Map coordinates</comment>
+    <field name="x" type="char" />
+    <field name="y" type="char" />
+  </struct>
+</protocol>

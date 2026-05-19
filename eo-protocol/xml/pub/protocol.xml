@@ -1,0 +1,274 @@
+<protocol>
+  <enum name="Element" type="char">
+    <value name="None">0</value>
+    <value name="Light">1</value>
+    <value name="Dark">2</value>
+    <value name="Earth">3</value>
+    <value name="Wind">4</value>
+    <value name="Water">5</value>
+    <value name="Fire">6</value>
+  </enum>
+  <enum name="ItemType" type="char">
+    <value name="General">0</value>
+    <value name="Reserved1">1</value>
+    <value name="Currency">2</value>
+    <value name="Heal">3</value>
+    <value name="Teleport">4</value>
+    <value name="Reserved5">5</value>
+    <value name="ExpReward">6</value>
+    <value name="Reserved7">7</value>
+    <value name="Reserved8">8</value>
+    <value name="Key">9</value>
+    <value name="Weapon">10</value>
+    <value name="Shield">11</value>
+    <value name="Armor">12</value>
+    <value name="Hat">13</value>
+    <value name="Boots">14</value>
+    <value name="Gloves">15</value>
+    <value name="Accessory">16</value>
+    <value name="Belt">17</value>
+    <value name="Necklace">18</value>
+    <value name="Ring">19</value>
+    <value name="Armlet">20</value>
+    <value name="Bracer">21</value>
+    <value name="Alcohol">22</value>
+    <value name="EffectPotion">23</value>
+    <value name="HairDye">24</value>
+    <value name="CureCurse">25</value>
+    <value name="Reserved26">26</value>
+    <value name="Reserved27">27</value>
+    <value name="Reserved28">28</value>
+    <value name="Reserved29">29</value>
+  </enum>
+  <enum name="ItemSubtype" type="char">
+    <value name="None">0</value>
+    <value name="Ranged">1</value>
+    <value name="Arrows">2</value>
+    <value name="Wings">3</value>
+    <value name="Reserved4">4</value>
+  </enum>
+  <enum name="ItemSpecial" type="char">
+    <value name="Normal">0</value>
+    <value name="Rare">1</value>
+    <value name="Legendary">2</value>
+    <value name="Unique">3</value>
+    <value name="Lore">4</value>
+    <value name="Cursed">5</value>
+  </enum>
+  <enum name="ItemSize" type="char">
+    <comment>Size of an item in the inventory</comment>
+    <value name="Size1x1">0</value>
+    <value name="Size1x2">1</value>
+    <value name="Size1x3">2</value>
+    <value name="Size1x4">3</value>
+    <value name="Size2x1">4</value>
+    <value name="Size2x2">5</value>
+    <value name="Size2x3">6</value>
+    <value name="Size2x4">7</value>
+  </enum>
+  <struct name="EifRecord">
+    <comment>Record of Item data in an Endless Item File</comment>
+    <length name="name_length" type="char" />
+    <field name="name" type="string" length="name_length" />
+    <field name="graphic_id" type="short" />
+    <field name="type" type="ItemType" />
+    <field name="subtype" type="ItemSubtype" />
+    <field name="special" type="ItemSpecial" />
+    <field name="hp" type="short" />
+    <field name="tp" type="short" />
+    <field name="min_damage" type="short" />
+    <field name="max_damage" type="short" />
+    <field name="accuracy" type="short" />
+    <field name="evade" type="short" />
+    <field name="armor" type="short" />
+    <field name="return_damage" type="char" />
+    <field name="str" type="char" />
+    <field name="intl" type="char" />
+    <field name="wis" type="char" />
+    <field name="agi" type="char" />
+    <field name="con" type="char" />
+    <field name="cha" type="char" />
+    <field name="light_resistance" type="char" />
+    <field name="dark_resistance" type="char" />
+    <field name="earth_resistance" type="char" />
+    <field name="air_resistance" type="char" />
+    <field name="water_resistance" type="char" />
+    <field name="fire_resistance" type="char" />
+    <field name="spec1" type="three">
+      <comment>
+                Holds one the following values, depending on item type:
+                scroll_map, doll_graphic, exp_reward, hair_color, effect, key, alcohol_potency
+            </comment>
+    </field>
+    <field name="spec2" type="char">
+      <comment>
+                Holds one the following values, depending on item type:
+                scroll_x, gender
+            </comment>
+    </field>
+    <field name="spec3" type="char">
+      <comment>
+                Holds one the following values, depending on item type:
+                scroll_y
+            </comment>
+    </field>
+    <field name="level_requirement" type="short" />
+    <field name="class_requirement" type="short" />
+    <field name="str_requirement" type="short" />
+    <field name="int_requirement" type="short" />
+    <field name="wis_requirement" type="short" />
+    <field name="agi_requirement" type="short" />
+    <field name="con_requirement" type="short" />
+    <field name="cha_requirement" type="short" />
+    <field name="element" type="Element" />
+    <field name="element_damage" type="char" />
+    <field name="weight" type="char" />
+    <field type="char">0</field>
+    <field name="size" type="ItemSize" />
+  </struct>
+  <struct name="Eif">
+    <comment>Endless Item File</comment>
+    <field type="string" length="3">EIF</field>
+    <array name="rid" type="short" length="2" />
+    <field name="total_items_count" type="short" />
+    <field name="version" type="char" />
+    <array name="items" type="EifRecord" />
+  </struct>
+  <enum name="NpcType" type="short">
+    <value name="Friendly">0</value>
+    <value name="Passive">1</value>
+    <value name="Aggressive">2</value>
+    <value name="Reserved3">3</value>
+    <value name="Reserved4">4</value>
+    <value name="Reserved5">5</value>
+    <value name="Shop">6</value>
+    <value name="Inn">7</value>
+    <value name="Reserved8">8</value>
+    <value name="Bank">9</value>
+    <value name="Barber">10</value>
+    <value name="Guild">11</value>
+    <value name="Priest">12</value>
+    <value name="Lawyer">13</value>
+    <value name="Trainer">14</value>
+    <value name="Quest">15</value>
+  </enum>
+  <struct name="EnfRecord">
+    <comment>Record of NPC data in an Endless NPC File</comment>
+    <length name="name_length" type="char" />
+    <field name="name" type="string" length="name_length" />
+    <field name="graphic_id" type="short" />
+    <field name="race" type="char" />
+    <field name="boss" type="bool:short" />
+    <field name="child" type="bool:short" />
+    <field name="type" type="NpcType" />
+    <field name="behavior_id" type="short" />
+    <field name="hp" type="three" />
+    <field name="tp" type="short" />
+    <field name="min_damage" type="short" />
+    <field name="max_damage" type="short" />
+    <field name="accuracy" type="short" />
+    <field name="evade" type="short" />
+    <field name="armor" type="short" />
+    <field name="return_damage" type="char" />
+    <field name="element" type="Element:short" />
+    <field name="element_damage" type="short" />
+    <field name="element_weakness" type="Element:short" />
+    <field name="element_weakness_damage" type="short" />
+    <field name="level" type="char" />
+    <field name="experience" type="three" />
+  </struct>
+  <struct name="Enf">
+    <comment>Endless NPC File</comment>
+    <field type="string" length="3">ENF</field>
+    <array name="rid" type="short" length="2" />
+    <field name="total_npcs_count" type="short" />
+    <field name="version" type="char" />
+    <array name="npcs" type="EnfRecord" />
+  </struct>
+  <struct name="EcfRecord">
+    <comment>Record of Class data in an Endless Class File</comment>
+    <length name="name_length" type="char" />
+    <field name="name" type="string" length="name_length" />
+    <field name="parent_type" type="char" />
+    <field name="stat_group" type="char" />
+    <field name="str" type="short" />
+    <field name="intl" type="short" />
+    <field name="wis" type="short" />
+    <field name="agi" type="short" />
+    <field name="con" type="short" />
+    <field name="cha" type="short" />
+  </struct>
+  <struct name="Ecf">
+    <comment>Endless Class File</comment>
+    <field type="string" length="3">ECF</field>
+    <array name="rid" type="short" length="2" />
+    <field name="total_classes_count" type="short" />
+    <field name="version" type="char" />
+    <array name="classes" type="EcfRecord" />
+  </struct>
+  <enum name="SkillNature" type="char">
+    <value name="Spell">0</value>
+    <value name="Skill">1</value>
+  </enum>
+  <enum name="SkillType" type="three">
+    <value name="Heal">0</value>
+    <value name="Attack">1</value>
+    <value name="Bard">2</value>
+  </enum>
+  <enum name="SkillTargetRestrict" type="char">
+    <value name="Npc">0</value>
+    <value name="Friendly">1</value>
+    <value name="Opponent">2</value>
+  </enum>
+  <enum name="SkillTargetType" type="char">
+    <value name="Normal">0</value>
+    <value name="Self">1</value>
+    <value name="Reserved2">2</value>
+    <value name="Group">3</value>
+  </enum>
+  <struct name="EsfRecord">
+    <comment>Record of Skill data in an Endless Skill File</comment>
+    <length name="name_length" type="char" />
+    <length name="chant_length" type="char" />
+    <field name="name" type="string" length="name_length" />
+    <field name="chant" type="string" length="chant_length" />
+    <field name="icon_id" type="short" />
+    <field name="graphic_id" type="short" />
+    <field name="tp_cost" type="short" />
+    <field name="sp_cost" type="short" />
+    <field name="cast_time" type="char" />
+    <field name="nature" type="SkillNature" />
+    <field type="char">1</field>
+    <field name="type" type="SkillType" />
+    <field name="element" type="Element" />
+    <field name="element_power" type="short" />
+    <field name="target_restrict" type="SkillTargetRestrict" />
+    <field name="target_type" type="SkillTargetType" />
+    <field name="target_time" type="char" />
+    <field type="char">0</field>
+    <field name="max_skill_level" type="short" />
+    <field name="min_damage" type="short" />
+    <field name="max_damage" type="short" />
+    <field name="accuracy" type="short" />
+    <field name="evade" type="short" />
+    <field name="armor" type="short" />
+    <field name="return_damage" type="char" />
+    <field name="hp_heal" type="short" />
+    <field name="tp_heal" type="short" />
+    <field name="sp_heal" type="char" />
+    <field name="str" type="short" />
+    <field name="intl" type="short" />
+    <field name="wis" type="short" />
+    <field name="agi" type="short" />
+    <field name="con" type="short" />
+    <field name="cha" type="short" />
+  </struct>
+  <struct name="Esf">
+    <comment>Endless Skill File</comment>
+    <field type="string" length="3">ESF</field>
+    <array name="rid" type="short" length="2" />
+    <field name="total_skills_count" type="short" />
+    <field name="version" type="char" />
+    <array name="skills" type="EsfRecord" />
+  </struct>
+</protocol>
