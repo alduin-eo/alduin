@@ -13,3 +13,6 @@
 [submodule "eo-protocol-extensions"]
 	path = eo-protocol-extensions
 	url = git@github.com:alduin-eo/eo-protocol-extensions.git
+[submodule "eo-protocol"]
+	path = eo-protocol
+	url = git@github.com:alduin-eo/eo-protocol.git
